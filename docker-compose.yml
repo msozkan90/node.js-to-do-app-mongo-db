@@ -1,0 +1,16 @@
+version: "3"
+services:
+      todo-app:
+          container_name: todo-app
+          image: latest123/todo-app
+          restart: always
+          build: .
+          ports:
+            - "3000:3000"
+          links:
+            - mongodb
+      mongodb:
+        image: mongo
+        container_name: mongodb
+        ports:
+            - "27017:27017"
